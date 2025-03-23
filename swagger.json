@@ -1,0 +1,96 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Library API",
+    "version": "1.0.0",
+    "description": "API documentation for the Library Management System"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000",
+      "description": "Local server"
+    }
+  ],
+  "paths": {
+    "/books": {
+      "get": {
+        "summary": "Get all books",
+        "operationId": "getBooks",
+        "responses": {
+          "200": {
+            "description": "List of books",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Book"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/members": {
+      "get": {
+        "summary": "Get all members",
+        "operationId": "getMembers",
+        "responses": {
+          "200": {
+            "description": "List of members",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Member"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Book": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "JK-45"
+          },
+          "title": {
+            "type": "string",
+            "example": "Harry Potter"
+          },
+          "author": {
+            "type": "string",
+            "example": "J.K. Rowling"
+          },
+          "stock": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "Member": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "M001"
+          },
+          "name": {
+            "type": "string",
+            "example": "Angga"
+          }
+        }
+      }
+    }
+  }
+}
